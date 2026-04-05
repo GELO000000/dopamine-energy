@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOPAMINE | Premium Performance</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="nav-section left">
+            <a href="index.html" class="nav-link">MAIN</a> 
+            <a href="#" class="nav-link" onclick="openAbout()">ABOUT US</a>
+            <a href="#" class="nav-link" onclick="openSocials()">SOCIALS</a>
+        </div>
+        <h1 class="logo">DOPAMINE</h1>
+        <div class="nav-section right">
+            <a href="#" class="nav-link" onclick="openAccount()">ACCOUNT</a>
+            <a href="#" class="nav-link" id="cartNav" onclick="openCart()">CART</a>
+        </div>
+    </header>
+
+    <main class="main-layout">
+        <section class="hero-section">
+            <div class="hero-image"><img src="img1.png" alt="Dopamine Main"></div>
+            <div class="hero-text">
+                <h1 class="headline">DEFEAT THE <br> MONKEY.</h1>
+                <p class="description">WHY SETTLE FOR A CRASH WHEN YOU CAN HAVE A BREAKTHROUGH? OUR NEW FORMULA COMBINES HIGH-OCTANE ENERGY WITH THE RECOVERY POWER OF MAGNESIUM + VITAMINS.</p>
+                <button class="buy-btn glow" onclick="openCart()">BUY NOW</button>
+            </div>
+        </section>
+
+        <section class="bento-grid">
+            <div class="grid-item item1"><img src="img2.png"></div>
+            <div class="grid-item item2"><img src="img3.png"></div>
+            <div class="grid-item item3"><img src="img4.png"></div>
+            <div class="grid-item item4"><img src="img5.png"></div>
+        </section>
+
+        <section class="video-section">
+            <div class="video-container">
+                <video id="myVideo" class="full-video" loop>
+                    <source src="vid1.mp4" type="video/mp4">
+                </video>
+                <div class="video-controls">
+                    <button onclick="toggleMute()" id="muteBtn">UNMUTE</button>
+                    <button onclick="playPause()" id="playBtn">PAUSE</button>
+                    <button onclick="restart()">RESTART</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="accountModal" class="modal">
+        <div class="modal-content account-content">
+            <span class="close-modal" onclick="closeAccount()">&times;</span>
+            <div id="authContainer">
+                <h2 id="authTitle" class="headline" style="font-size: 1.8rem; color: var(--yellow);">LOGIN</h2>
+                <p style="font-size: 0.7rem; opacity: 0.6; margin-bottom: 25px;">PERFORMANCE HUB</p>
+                <div style="text-align: left; margin-bottom: 15px;">
+                    <label class="stat-label">GMAIL</label>
+                    <input type="email" id="authEmail" placeholder="example@gmail.com" class="auth-input">
+                </div>
+                <div style="text-align: left; margin-bottom: 10px;">
+                    <label class="stat-label">PASSWORD</label>
+                    <input type="password" id="authPassword" placeholder="••••••••" class="auth-input">
+                </div>
+                <p id="authError" style="color: #ff4444; font-size: 0.75rem; font-weight: 700; height: 15px; margin-bottom: 15px; text-transform: uppercase;"></p>
+                <button onclick="handleAuth()" class="checkout-btn">CONTINUE</button>
+                <p style="margin-top: 25px; font-size: 0.8rem;">
+                    <span id="toggleText">DON'T HAVE AN ACCOUNT?</span> 
+                    <a href="#" onclick="toggleAuthMode()" id="toggleBtn" style="color: var(--yellow); text-decoration: none; font-weight: 900;">REGISTER</a>
+                </p>
+            </div>
+            <div id="profileContainer" style="display: none;">
+                <h2 class="headline" style="font-size: 1.8rem; color: var(--yellow);">WELCOME</h2>
+                <p id="userDisplay" style="font-weight: 900; color: white; margin: 15px 0;"></p>
+                <button onclick="logout()" class="logout-btn">LOGOUT</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="aboutModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeAbout()">&times;</span>
+            <h2 class="headline" style="font-size: 1.8rem; color: var(--yellow); margin-bottom: 10px;">OUR STORY</h2>
+            <p style="font-size: 0.9rem; line-height: 1.6; color: rgba(255,255,255,0.8); margin-bottom: 20px;">DOPAMINE WAS BORN FROM THE NEED FOR ELITE FOCUS. WE DON'T JUST MAKE DRINKS; WE FUEL BREAKTHROUGHS.</p>
+            <div style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 15px; margin-bottom: 15px;">
+                <span class="stat-label">THE FOUNDERS:</span>
+                <p style="font-weight: 900; color: var(--yellow); letter-spacing: 1px;">KAKO • BABI • ALE • TEA • LUKA</p>
+            </div>
+            <div style="background: rgba(253, 240, 1, 0.05); padding: 15px; border-radius: 10px;">
+                <span class="stat-label">ORIGIN:</span>
+                <p style="margin: 5px 0; font-weight: 700; font-size: 0.9rem;">SINCE 2026 | TBILISI, GEORGIA</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="socialsModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeSocials()">&times;</span>
+            <h2 class="headline" style="font-size: 1.8rem; color: var(--yellow); margin-bottom: 20px;">SOCIALS</h2>
+            <div class="social-box">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/e/e7/Instagram_logo_2016.svg" class="social-img">
+                <div class="social-links">
+                    <a href="https://www.instagram.com/humankako/" target="_blank">@humankako</a>
+                    <a href="https://www.instagram.com/dopamine.energy/" target="_blank">@dopamine.energy</a>
+                </div>
+            </div>
+            <div class="social-box">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a9/TikTok_logo.svg" class="social-img" style="filter: invert(1);">
+                <div class="social-links">
+                    <a href="https://www.tiktok.com/@humankako" target="_blank">@humankako</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="cartModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeCart()">&times;</span>
+            <div class="cart-layout">
+                <img src="img6.png" style="width: 100px;">
+                <div style="text-align: left; flex: 1; padding-left: 20px;">
+                    <span class="stat-label">QUANTITY:</span>
+                    <div style="display:flex; gap:10px; align-items:center; margin-bottom:15px;">
+                        <button class="qty-btn" onclick="updateQty(1)">+</button>
+                        <span id="qtyValue">1</span>
+                        <button class="qty-btn" onclick="updateQty(-1)">-</button>
+                    </div>
+                    <div style="margin-bottom: 15px;">
+                        <span class="stat-label">HEART ATTACK RISK:</span>
+                        <span id="heartChance" class="risk-white" style="font-weight: 900; font-size: 1.2rem;">1%</span>
+                    </div>
+                    <span class="stat-label">PRICE:</span>
+                    <p style="font-weight:900; font-size:1.2rem; margin:0 0 15px 0;">$<span id="totalPrice">3.90</span></p>
+                    <button class="checkout-btn">CHECKOUT</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="buy-info">NIKORA • LIBRE • ONLINE</div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

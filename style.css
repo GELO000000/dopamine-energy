@@ -1,0 +1,60 @@
+:root {
+    --bg: #121019;
+    --yellow: #fdf001;
+    --gray: #1c1926;
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: white; font-family: 'Inter', sans-serif; overflow-x: hidden; }
+
+/* NAVBAR */
+.navbar { position: fixed; top: 0; left: 0; width: 100%; height: 80px; display: flex; justify-content: space-between; align-items: center; padding: 0 50px; background: rgba(0,0,0,0.95); z-index: 2000; }
+.logo { color: var(--yellow); font-weight: 900; letter-spacing: 5px; position: absolute; left: 50%; transform: translateX(-50%); font-size: 2rem; }
+.nav-section { display: flex; align-items: center; gap: 25px; flex: 1; }
+.nav-section.right { justify-content: flex-end; }
+.nav-link { color: white; text-decoration: none; font-size: 12px; font-weight: 900; text-transform: uppercase; cursor: pointer; }
+
+/* LAYOUT */
+.main-layout { margin-top: 120px; padding: 0 40px; display: flex; flex-direction: column; gap: 80px; }
+.hero-section { display: flex; align-items: center; gap: 40px; max-width: 1400px; margin: 0 auto; width: 100%; }
+.hero-image img { width: 100%; max-height: 500px; object-fit: contain; border-radius: 20px; }
+.hero-text { width: 50%; }
+.headline { font-size: 3.5rem; font-weight: 900; line-height: 0.9; margin-bottom: 20px; }
+
+/* BENTO GRID */
+.bento-grid { display: grid; grid-template-areas: "img1 img2 img3" "img4 img2 img3"; grid-template-columns: 1.2fr 1fr 1fr; grid-gap: 20px; min-height: 550px; max-width: 1400px; margin: 0 auto; width: 100%; }
+.grid-item img { width: 100%; height: 100%; object-fit: cover; border-radius: 20px; }
+.item1 { grid-area: img1; } .item2 { grid-area: img2; } .item3 { grid-area: img3; } .item4 { grid-area: img4; }
+
+/* VIDEO */
+.video-section { width: 100%; max-width: 1400px; margin: 120px auto 80px auto; clear: both; }
+.video-container { position: relative; border-radius: 25px; overflow: hidden; background: black; width: 100%; aspect-ratio: 16 / 9; }
+.full-video { width: 100%; height: 100%; object-fit: cover; }
+.video-controls { position: absolute; bottom: 20px; right: 20px; display: flex; gap: 10px; }
+.video-controls button { background: var(--yellow); border: none; padding: 12px 25px; font-weight: 900; border-radius: 5px; cursor: pointer; color: black; }
+
+/* MODALS */
+.modal { display: none; position: fixed; z-index: 3000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); backdrop-filter: blur(8px); }
+.modal-content { background: var(--gray); margin: 8% auto; padding: 40px; border: 2px solid var(--yellow); border-radius: 20px; width: 450px; position: relative; color: white; text-align: center; }
+.close-modal { position: absolute; right: 20px; top: 10px; font-size: 35px; cursor: pointer; color: var(--yellow); }
+
+/* AUTH */
+.auth-input { width: 100%; padding: 14px; background: rgba(255,255,255,0.05); border: 1px solid rgba(253,240,1,0.2); border-radius: 10px; color: white; margin-top: 5px; }
+.stat-label { font-size: 0.7rem; letter-spacing: 1.5px; opacity: 0.6; font-weight: 900; display: block; text-transform: uppercase; }
+.checkout-btn { background: var(--yellow); border: none; padding: 15px; width: 100%; font-weight: 900; border-radius: 10px; cursor: pointer; color: black; text-transform: uppercase; }
+.qty-btn { background: #333; color: white; width: 32px; height: 32px; border: none; border-radius: 5px; cursor: pointer; }
+.buy-btn { background: var(--yellow); border: none; padding: 15px 40px; font-weight: 900; border-radius: 30px; cursor: pointer; color: black; }
+.logout-btn { width: 100%; height: 50px; background: rgba(255,0,0,0.1); color: #ff4444; border: 1px solid rgba(255,0,0,0.3); border-radius: 10px; font-weight: 900; cursor: pointer; }
+
+/* RISK COLORS */
+.risk-white { color: white; }
+.risk-yellow { color: var(--yellow); }
+.risk-orange { color: #ff8c00; }
+.risk-red { color: #ff0000; text-shadow: 0 0 10px red; }
+
+.social-box { display: flex; align-items: center; gap: 15px; background: rgba(255,255,255,0.05); padding: 15px; border-radius: 15px; margin-bottom: 15px; text-align: left; }
+.social-img { width: 30px; height: 30px; }
+.social-links a { color: white; text-decoration: none; font-weight: 700; display: block; }
+.footer { padding: 60px; text-align: center; background: black; }
+.glow { animation: glowPulse 2s infinite; }
+@keyframes glowPulse { 0%, 100% { box-shadow: 0 0 5px rgba(253,240,1,0.3); } 50% { box-shadow: 0 0 20px rgba(253,240,1,0.6); } }
